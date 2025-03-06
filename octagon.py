@@ -28,15 +28,12 @@ side = int(input())
 class Octagon:
 
     # Конструктор
-    def __init__(self, side):
-        self.side = side  # side - сторона
-        self.fig, self.ax = plt.subplots()
-
-    # Конструктор
     def __init__(self,side):
         self.side = side # side - сторона
         self.fig, self.ax = plt.subplots()
         
+
+
     # Радиус описанной окружности 
     def circum_r (self):
         self_r_c = (self.side/2)*k
@@ -50,11 +47,13 @@ class Octagon:
         self.ax.add_artist(circum_circle)
 
 
+
     # Площадь описанной окружности
     def circum_s (self):
         self_s_c = pi*((self.side/2)*k)**2
         print(f'Площадь описанной окружности{self_s_c}')
         
+
 
     # Радиус вписанной окружности
     def inscr_r (self ):
@@ -69,11 +68,13 @@ class Octagon:
         self.ax.add_artist(inscr_circle)
 
 
+
      # Площадь вписанной окружности
     def inscr_s (self):
         self_s_i = pi*((self.side/2)*sqrt(2))**2
         print(f'Площадь вписанной окружности{self_s_i}')
         
+
 
     # Площадь октагона
     def oct_s (self):
@@ -85,6 +86,8 @@ class Octagon:
         self_p_o = 8*self.side
         print(f'Периметр октагона {self_p_o}')
         return self_p_o
+
+
 
     # Рисуем восьмиугольник
     def draw_octagon(self, color='blue'):
@@ -101,6 +104,8 @@ class Octagon:
             y_values = [vertices[i][1], vertices[(i + 1) % 8][1]]
             self.ax.plot(x_values, y_values, color=color)
 
+
+
     def show(self):
         self.ax.set_xlim(-40, 40)
         self.ax.set_ylim(-40, 40)
@@ -108,9 +113,13 @@ class Octagon:
         plt.grid()
         plt.show()
         plt.title('Восьмиугольник с окружностями')
+
+
         
     def __del__(self):
         print("del done")
+
+
 
 if __name__ == "__main__":
 
