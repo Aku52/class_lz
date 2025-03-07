@@ -27,6 +27,10 @@ side = int(input())
 
 class Octagon:
 
+    # Константы
+    corner = 45
+    k = 1 + sqrt(2)
+
     # Конструктор
     def __init__(self,side):
         self.side = side # side - сторона
