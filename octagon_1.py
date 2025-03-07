@@ -15,9 +15,6 @@ from math import cos, sin
 
 import matplotlib.pyplot as plt
 
-# Константы
-corner = 45
-k = 1 + sqrt(2)
 
 # Ввод пользователя
 print('Введите длину стороны октагона(больше 33 не обрабатываю(не рисую))')
@@ -27,20 +24,19 @@ side = int(input())
 
 class Octagon:
 
-    # Константы
-    corner = 45
-    k = 1 + sqrt(2)
 
     # Конструктор
     def __init__(self,side):
         self.side = side # side - сторона
         self.fig, self.ax = plt.subplots()
+        self.corner = 45
+        self.k = 1 + sqrt(2)
         
 
 
     # Радиус описанной окружности 
     def circum_r (self):
-        self_r_c = (self.side/2)*k
+        self_r_c = (self.side/2)*self.k
         print(f'Радиус описанной окружности{self_r_c}')
         return self_r_c
     
@@ -54,7 +50,7 @@ class Octagon:
 
     # Площадь описанной окружности
     def circum_s (self):
-        self_s_c = pi*((self.side/2)*k)**2
+        self_s_c = pi*((self.side/2)*self.k)**2
         print(f'Площадь описанной окружности{self_s_c}')
         
 
@@ -82,7 +78,7 @@ class Octagon:
 
     # Площадь октагона
     def oct_s (self):
-        self_s_o = 2*self.side**2*k
+        self_s_o = 2*self.side**2*self.k
         print(f'Площадь октагона{self_s_o}')   
 
     # Периметр октагона 
@@ -97,7 +93,7 @@ class Octagon:
     def draw_octagon(self, color='blue'):
         vertices = []
         for i in range(8):
-            angle = radians(i * corner) # преобразует угол в радианы (так как функции cos и sin работают с радианами)
+            angle = radians(i * self.corner) # преобразует угол в радианы (так как функции cos и sin работают с радианами)
             x = self.side * cos(angle)
             y = self.side * sin(angle)
             vertices.append((x, y))
